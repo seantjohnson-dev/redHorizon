@@ -39,8 +39,11 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
-function validateForm() {
+// Form validation logic function
+function validatePilotForm() {
+  // form validity flag
   let isValid = true;
+  // Get form fields
   const firstName = document.getElementById("firstName");
   const lastName = document.getElementById("lastName");
   const email = document.getElementById("email");
@@ -48,6 +51,7 @@ function validateForm() {
   const experience = document.getElementById("experience");
   const bio = document.getElementById("bio");
 
+  // Highlight each field based on validity state
   highlightField("firstName", firstName.value.trim() !== "");
   highlightField("lastName", lastName.value.trim() !== "");
   highlightField("age", !isNaN(age.value.trim()) && age.value.trim() >= 18);
@@ -66,6 +70,8 @@ function validateForm() {
   //   showError("All fields are required.");
   //   return false;
   // }
+
+  // Individual field validations with error messages
   if (firstName.value.trim() === "") {
     showError(firstName, "First name is required.");
     isValid = false;
@@ -105,11 +111,13 @@ function validateForm() {
   return isValid;
 }
 
+// Email validation helper
 function isValidEmail(email) {
   const pattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   return pattern.test(email);
 }
 
+// Function to show error messages below input fields
 function showError(element, message) {
   let isInDom = true;
   let error = element.parentElement.querySelector(".error-msg");
@@ -124,6 +132,7 @@ function showError(element, message) {
   element.parentElement.appendChild(error);
 }
 
+// Function to display invalid or valid styles via class names
 function highlightField(inputId, isValid) {
   const input = document.getElementById(inputId);
   if (isValid) {
@@ -138,10 +147,9 @@ function highlightField(inputId, isValid) {
 
 // Pilot form validation and submission handling
 const form = document.getElementById("pilot-form");
-const errorMsg = document.getElementById("error-msg");
 form.addEventListener("submit", function(e) {
   e.preventDefault();
-  const isValid = validateForm();
+  const isValid = validatePilotForm();
   if (isValid) {
     // alert("Form submitted successfully!");
     form.submit();
