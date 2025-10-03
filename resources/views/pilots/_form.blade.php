@@ -58,8 +58,8 @@
 
 <div class="mt-8 flex items-center gap-3">
     <button type="submit"
-        class="inline-flex items-center rounded-md bg-indigo-600 px-4 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500">
+        class="inline-flex items-center rounded-md bg-brand-accent px-4 py-2 text-sm font-semibold text-black shadow-sm hover:bg-brand-accent-500">
         {{ $submitLabel ?? 'Save' }}
     </button>
-    <a href="{{ route('pilots.index') }}" class="text-sm font-medium text-gray-300 hover:text-gray-900">Cancel</a>
+    <a href="{{ route('pilots.index') }}" class="text-sm font-medium text-gray-300 hover:text-gray-500">Cancel</a>
 </div>

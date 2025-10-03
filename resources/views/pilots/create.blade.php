@@ -19,7 +19,7 @@
 <section class="wrap">
     <form id="pilot-form" action="{{ route('pilots.store') }}" method="POST"
         class="rounded-lg bg-brand-card p-6 shadow-sm ring-1 ring-gray-200 my-5">
-        @include('pilots._form', ['submitLabel' => 'Create'])
+        @include('pilots._form', ['submitLabel' => 'Apply Now'])
     </form>
 </section>
 @endsection
